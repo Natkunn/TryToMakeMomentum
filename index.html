@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My Momentum</title>
+</head>
+
+<body onload="startTime()">
+  <div class="greeting">
+    <h1 id="clock"></h1>
+    <h2>Good <span id="greet"></span>, <span>Natura Adnyana</span></h2>
+    <div class="line"></div>
+    <h3>Todo :</h3>
+    <h4>&#9656; Tugas Bahasa Inggris 2</h4>
+    <h5>Never regret anything that made you smile. – Mark Twain</h5>
+  </div>
+</body>
+<script>
+  function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    m = checkTime(m);
+    document.getElementById('clock').innerHTML =
+      h + ":" + m;
+    var t = setTimeout(startTime, 1000);
+    function greet(g) {
+      if (h < 10) {
+        g = "Morning";
+        return g;
+      }
+      else if (h < 6) {
+        g = "Afternoon";
+        return g;
+      }
+      else {
+        g = "Evening";
+        return g;
+      }
+    }
+    let greeting = greet();
+    document.getElementById('greet').innerHTML = greeting;
+  }
+  function checkTime(i) {
+    if (i < 10) { i = "0" + i };
+    return i;
+  }
+</script>
+
+</html>
